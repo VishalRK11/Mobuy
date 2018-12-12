@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row fullscreen align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-12 d-flex align-self-end img-right no-padding">
+                <img class="img-fluid" src="{% static 'img/OnePlus6.jpg' %}" alt="header-img">
+            </div>
+            <br>
+            <div class="banner-content col-lg-6 col-md-12">
+                <h1 class="title-top"><span>Flat</span> 75%Off</h1>
+                <h1 class="text-uppercase">
+                    this season! <br> Get brand new phones
+                </h1>
+                <a class="btn btn-outline-success btn-lg my-2" href="{% url 'products:list' %}">Purchase Now</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

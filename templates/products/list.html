@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row py-5">
+            {% for product in products_data %}
+                <div class="col-4 card" style="border-radius: 0em;">
+                    {% include 'products/card.html' with instance=product %}
+                </div>
+                {% cycle '' '' '</div><div class="row" style="height: 25rem">' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

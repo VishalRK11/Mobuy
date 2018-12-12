@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 mr-4">
+                <h1>{{ object.title }}</h1>
+                <p>
+                    <b>Model</b>: {{ object.model }} <br>
+                    <b>Featured Product</b>: {% if object.featured %} Yes {% else %} No {% endif %}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="image-shell col-8" align="center">
+                <img class="img" src="{{ object.image.url }}" style="object-fit: fill"
+                     onerror="this.src='http://www.brandnmc.com/jbframework/uploads/2017/07/image_not_available.png'">
+            </div>
+            <div class="col-4" align="left" style="z-index: auto">
+                <p><b>Price</b>: ${{ object.price }} <br> <b>Shipping</b>: $0.00</p>
+                <hr/>
+                {% include 'products/update_cart.html' with product=object cart=cart %}
+                <hr/>
+                <p><b>Manufacturer:</b> {{ object.brand|title }}</p>
+                <p><b>Type</b>: {{ object.category|title }}</p>
+                <p><b>Description:</b> <br> <span>{{ object.description|linebreaks }}</span></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

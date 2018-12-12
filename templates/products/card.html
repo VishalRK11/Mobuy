@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12" style="padding: 5%">
+        <div class="image-shell" align="center">
+            <a href="{{ instance.get_absolute_url }}">
+                <img class="img-responsive" src="{{ instance.image.url }}" style="max-width: 50%"
+                     onerror="this.src='http://www.brandnmc.com/jbframework/uploads/2017/07/image_not_available.png'">
+            </a>
+        </div>
+    </div>
+    <div class="col-12" style="padding: 5%">
+        <h3 class="header-minimal">{{ instance.title|truncatechars:50 }}</h3>
+        <p class="card-text" style="margin: 0"><b>Brand</b>: {{ instance.brand|title }}</p>
+        <p class="card-text" style="margin: 0"><b>Model</b>: {{ instance.model|title }}</p>
+        <p class="card-text" style="margin: 0"><b>Price: ${{ instance.price }}</b></p>
+        <p class="card-text" style="margin: 0">{{ instance.description|linebreaks|truncatewords:14 }}</p>
+    </div>
+    <div class="col-12">
+        <a class="btn btn-outline-primary btn-block my-2"
+           href="{{ instance.get_absolute_url }}"><strong>View</strong></a>
+        {% include 'products/update_cart.html' with product=instance cart=cart %}
+    </div>
+</div>

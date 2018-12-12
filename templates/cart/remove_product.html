@@ -1,0 +1,7 @@
+<form class="add_to_cart_form form" method='POST' action='{% url "carts:update" %}' data-endpoint='{% url "carts:update" %}'>{% csrf_token %}
+    <input  class="cart-product-id" type="hidden" name="product_id" value="{{ product_id }}">
+    <button type="submit" class="btn btn-outline-danger btn-sm">
+        <i class="fa fa-remove"></i>
+            Remove
+    </button>
+</form>
